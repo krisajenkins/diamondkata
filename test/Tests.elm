@@ -10,7 +10,15 @@ import Main (..)
 tests : Test
 tests =
   suite "Test"
-    [test "diff 1" (assertEqual "A" (diamond 'A'))
+    [test "A" (assertEqual "A" (diamond 'A'))
+
+    -- ,test "B" (assertEqual " A\nB B\n A" (diamond 'B'))
+
+    ,test "Prefix A->A" (assertEqual 0 (prefix 'A' 'A'))
+    ,test "Prefix D->B" (assertEqual 2 (prefix 'D' 'B'))
+
+    ,test "Suffix B" (assertEqual 1 (suffix 'B'))
+    ,test "Suffix D" (assertEqual 5 (suffix 'D'))
     ]
 
 main : Element
